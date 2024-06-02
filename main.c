@@ -2,8 +2,7 @@
 #include <locale.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <string.h> 
-
+#include <string.h>
 
 int registro() {
     char arquivo[40];
@@ -59,7 +58,7 @@ int consulta() {
         printf("%s", conteudo);
         printf("\n\n");
     }
-    
+   
     system("PAUSE");
 }
 
@@ -69,15 +68,17 @@ int deletar() {
     printf("Digite o cpf a ser deletado:");
     scanf("%s", cpf);
 
-    remove(cpf); 
+    remove(cpf);
     FILE *file;
     file = fopen(cpf,"r");
-    
+   
 
     if(file == NULL){
         printf("O usuário não se encontra no sistema!\n");
         system("pause");
     }
+
+    system("PAUSE");
 }
 
 int main() {
@@ -87,11 +88,11 @@ int main() {
         system("cls");
         setlocale(LC_ALL,"PORTUGUESE");
         printf("\t Bem-vindo ao menu do cartório EBAC\n\n");
-        printf("1 - Cadastrar usuário\n\n2 - Listar usuários\n\n3 - Apagar usuário\n\n");
+        printf("1 - Cadastrar usuário\n\n2 - Listar usuários\n\n3 - Apagar usuário\n\n4 - Sair\n\n");
         printf("\t Digite a opção desejada e pressione Enter: ");
-        
+       
         scanf("%i", &opcao);
-        
+       
         switch (opcao) {
             case 1:
                 registro();
@@ -102,11 +103,13 @@ int main() {
             case 3:
                 deletar();
                 break;
+            case 4:
+                printf("Saindo do programa...\n");
+                return 0; // Sair do programa
             default:
                 printf("Opção inválida\n");
                 system("PAUSE");
                 break;
         }
     }
-    return 0;
 }
